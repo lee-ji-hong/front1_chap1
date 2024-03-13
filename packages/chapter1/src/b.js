@@ -33,10 +33,21 @@ class HardWork {
   }
 
   do() {
-    for (let i = 0; i < this._tasks.length; i++) {
-      this._tasks[i]();
-    }
+    const executeTask = (index) => {
+      if (index >= this._tasks.length) return; // 모든 태스크가 실행되면 종료
+      
+      new Promise((resolve) => {
+        setTimeout(() => {
+          this._tasks[index](); // 현재 태스크 실행
+          console.log(this._tasks[index]()); // 현재 실행된 태스크의 결과를 로그로 출력
+          resolve();
+        }, 0);
+      }).then(() => executeTask(index + 1)); // 다음 태스크를 재귀적으로 실행
+    };
+    
+    executeTask(0); // 첫 번째 태스크부터 시작
   }
+
 
   // do() 이외의 메서드는 수정하지마세요
   get result() {
