@@ -1,0 +1,81 @@
+name: Chapter2 Test
+
+on:
+  pull_request:
+    types:
+      - synchronize
+      - opened
+      - reopened
+    paths:
+      - 'packages/chapter2/**'
+
+  workflow_dispatch:
+
+jobs:
+  testA:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-a
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:a
+  testB:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-a
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:b
+  testC:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-a
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:c
+  testD:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-d
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:d
+  testE:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-e
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:e
+  testF:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        cache: 'yarn'
+    - name: chapter2-test-f
+      run: |
+        yarn install
+        yarn workspace chapter2 run test:f
+        
