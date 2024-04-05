@@ -1,4 +1,3 @@
-
 export function createHooks(callback) {
   const stateContext = {
     current: 0,
@@ -24,7 +23,8 @@ export function createHooks(callback) {
     const setState = (newState) => {
       if (newState === states[current]) return;
       states[current] = newState;
-      callback();
+      // 여기에서 requestAnimationFrame을 사용하여 비동기적으로 callback을 호출합니다.
+      requestAnimationFrame(callback);
     };
 
     return [states[current], setState];
